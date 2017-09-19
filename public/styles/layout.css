@@ -25,16 +25,18 @@ body {
  */
 .container{
   width: 450px;
-  height: 500px;
   margin: 0 auto;
   background-color: #fff;
   padding: 140px 2em;
  }
+
+ /*new tweet*/
 .new-tweet{
   border: 1px solid #d2d2d2;
   background-color: #eeeeee;
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 50px;
 }
 h2{
   border-bottom: 1px solid #000;
@@ -51,3 +53,62 @@ textarea{
   float: right;
   font-style: italic;
 }
+
+/*old tweet*/
+.tweet{
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+}
+.tweet header {
+  background-color: #f3f3f3;
+  padding: 10px;
+  height: 80px;
+}
+.tweet header img{
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
+}
+.tweet header p{
+  display: block;
+  line-height: 60px;
+  margin: 0;
+}
+.tweet header p.name{
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+.tweet header p.handler{
+  float: right;
+  font-style: italic;
+  color: #a6a6a6;
+}
+
+.tweet .tweet-content{
+  height: 80px;
+  margin: 0;
+  padding: 0 10px;
+  line-height: 80px;
+} 
+
+.tweet footer{
+  border-top: 1px solid #fafafa;
+  height: 50px;
+  padding: 0 10px;
+}
+.tweet footer .time{
+  line-height: 50px;
+  margin: 0;
+  float: left;
+}
+.tweet footer .icons{
+  display: block;
+  float: right;
+  height: 100%;
+}
+.tweet footer .icon{
+  line-height: 50px;
+  margin: 0 3px;
+}
+
