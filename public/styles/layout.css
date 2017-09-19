@@ -36,7 +36,7 @@ body {
   background-color: #eeeeee;
   border-radius: 5px;
   padding: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 h2{
   border-bottom: 1px solid #000;
@@ -58,16 +58,18 @@ textarea{
 .tweet{
   border: 1px solid #d2d2d2;
   border-radius: 5px;
+  margin-bottom: 50px;
 }
 .tweet header {
   background-color: #f3f3f3;
   padding: 10px;
   height: 80px;
 }
-.tweet header img{
+.tweet header .avatar{
   border-radius: 50%;
   float: left;
   margin-right: 10px;
+  height: 60px;
 }
 .tweet header p{
   display: block;
@@ -79,21 +81,27 @@ textarea{
   font-size: 20px;
   font-weight: bold;
 }
-.tweet header p.handler{
+.tweet header p.handle{
   float: right;
   font-style: italic;
   color: #a6a6a6;
 }
 
-.tweet .tweet-content{
+.tweet .content{
   height: 80px;
   margin: 0;
   padding: 0 10px;
-  line-height: 80px;
+  position: relative;
 } 
+.tweet .content p{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+}
 
 .tweet footer{
-  border-top: 1px solid #fafafa;
+  border-top: 1px solid #e6e6e6;
   height: 50px;
   padding: 0 10px;
 }

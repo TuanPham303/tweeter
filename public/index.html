@@ -18,6 +18,7 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     
   </head>
 
@@ -39,14 +40,19 @@
           <span class="counter">140</span>
         </form>
       </section>
+
       <section id="old-tweets">
         <article class="tweet">
           <header>
-            <img src="https://www.fillmurray.com/60/60" alt="avatar">
+            <img class="avatar" src="https://www.fillmurray.com/60/60" alt="avatar">
             <p class="name">Tuan Pham</p>       
-            <p class="handler">@tuanpham</p>
+            <p class="handle">@tuanpham</p>
           </header>
-          <p class="tweet-content">Hello World.</p>
+          
+          <div class="content">
+            <p>Hello World.</p>
+          </div>
+
           <footer>
             <p class="time">1 min ago</p>
             <div class="icons">
@@ -57,10 +63,6 @@
           </footer>
         </article>
       </section>
-    </main>
-
-
-  <!-- JS FILES -->
-  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    </main>  
   </body>
 </html>
