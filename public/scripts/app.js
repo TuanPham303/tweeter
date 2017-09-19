@@ -52,37 +52,41 @@ $(() => {
     }
   ];
 
-  function createTweetElement(tweetElement){
-    var $tweet = $("<article>", {"class": "tweet"});
+  function createTweetHeader(user) {
     var $header = $("<header>");
     var $img = $("<img>").addClass("avatar").attr({
-      "src": tweetElement.user.avatars.small,
+      "src": user.avatars.small,
       "alt": "avatar"
     });
-    var $name = $("<p>").addClass("name").text(tweetElement.user.name);
-    var $handle = $("<p>").addClass("handle").text(tweetElement.user.handle);
-
-    var $content = $("<div>").addClass("content").append($("<p>").text(tweetElement.content.text));
-    
-    var $footer = $("<footer>");
-    var $time = $("<p>").addClass("time").text(tweetElement.created_at);
-    var $icons = $("<div>", {"class": "icons"});
-
-    $tweet.append($header, $content, $footer);
+    var $name = $("<p>").addClass("name").text(user.name);
+    var $handle = $("<p>").addClass("handle").text(user.handle);
     $header.append($img, $name, $handle);
+    return $header;
+  }
+  function createTweetFooter(tweet){
+    var $footer = $("<footer>");
+    var $time = $("<p>").addClass("time").text(tweet.created_at);
+    var $icons = $("<div>", {"class": "icons"});
     $footer.append($time, $icons);
     $icons.append('<i class="icon fa fa-flag" aria-hidden="true"></i>',
                 '<i class="icon fa fa-retweet" aria-hidden="true"></i>',
                 '<i class="icon fa fa-heart" aria-hidden="true"></i>');
 
+  }
+
+  function createTweetElement(tweetElement){
+    var $tweet = $("<article>", {"class": "tweet"});
+    var $header = createTweetHeader(tweetElement.user);
+    let $footer = createTweetFooter(tweetElement);
+    var $content = $("<div>").addClass("content").append($("<p>").text(tweetElement.content.text));
+  
+    $tweet.append($header, $content, $footer);
+    
     return $tweet;
   }
 
   function renderTweet(tweetsData){
-    tweetsData.forEach((ele) => {
-      var $tweet = createTweetElement(ele);
-      $("#old-tweets").append($tweet);
-    });
+    $("#old-tweets").append(tweetsData.map(createTweetElement));
   }
   
   renderTweet(data);
