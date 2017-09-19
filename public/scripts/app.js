@@ -71,7 +71,7 @@ $(() => {
     $icons.append('<i class="icon fa fa-flag" aria-hidden="true"></i>',
                 '<i class="icon fa fa-retweet" aria-hidden="true"></i>',
                 '<i class="icon fa fa-heart" aria-hidden="true"></i>');
-
+    return $footer;
   }
 
   function createTweetElement(tweetElement){
