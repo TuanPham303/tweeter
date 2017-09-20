@@ -8,16 +8,30 @@
   color: #e8fdff;
   z-index: 1;
 } 
-.logo{
+#nav-bar .logo{
     height: 80px;
     width: 80px;
     margin-right: 10px;
     display: inline-block;
     float: left;
   }
-.header{
+#nav-bar .header{
     display: inline-block;
     font-size: 2em;
     height: 80px;
     line-height: 80px;
   }
+#nav-bar #compose{
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  border: none;
+  background-color: #4AB3F4;
+  padding: 6px 16px;
+  color: #fff;
+  border-radius: 100px;
+}
+#nav-bar #compose:hover{
+  background-color: #1DA1F2;
+}

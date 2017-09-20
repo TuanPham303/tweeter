@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
  // jshint esversion: 6
+
 $(() => {
   /*var data = [
     {
@@ -51,6 +52,7 @@ $(() => {
       "created_at": 1461113796368
     }
   ];*/
+  // let dataHelper = require('../../server/routes/tweets.js');
 
   function createTweetHeader(user) {
     var $header = $("<header>");
@@ -89,10 +91,8 @@ $(() => {
   function renderTweet(tweetsData){
     $("#old-tweets").append($.map(tweetsData, createTweetElement));
   }
-  
- /* renderTweet(data);*/
 
-//fetching tweets with AJAX
+//RENDER OLD TWEETS
   $.ajax({
     url: './tweets',
     method: 'GET',
@@ -101,19 +101,43 @@ $(() => {
     }
   });
 
-//form validation
+//FORM VALIDATION
   $("#click").on("click", (event) => {
     event.preventDefault();
     $(".error").empty();
     if($("textarea").val() !== ''){
       if($("textarea").val().length > 140){
         $("<p>").text("Your tweet is too long. The limit is 140 characters!").css("color", "red").appendTo($(".error"));
+      } else {
+        $.ajax({
+          url: '/tweets',
+          method: 'POST',
+          data: $("textarea").serialize(),
+          success: function(data){
+            $("#old-tweets").empty();
+            $.ajax({
+              url: '/tweets',
+              method: 'GET',
+              success: function(data){
+                let newTweet = data.pop();
+                data.unshift(newTweet);
+                renderTweet(data);
+                $("textarea").val('');
+                $(".counter").text(140);
+              }
+            });
+          }
+        });
       }
     } else {
       $("<p>").text("Wanna tweet something?").css("color", "red").appendTo($(".error"));
     }
-
   });
+
+//TOGGLE COMPOSE 
+  $("#compose").click(() => {
+    $(".new-tweet").toggle();
+  });  
   
 
 });
