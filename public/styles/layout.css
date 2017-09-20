@@ -17,29 +17,27 @@ html {
 body {
   margin: 0;
   color: #244751;
-  background-color: #eee;
+  background-color: #e6ecf0;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 .container{
-  width: 450px;
+  width: 700px;
   margin: 0 auto;
   background-color: #fff;
-  padding: 140px 2em;
+  padding: 140px 0;
  }
 
  /*new tweet*/
 .new-tweet{
-  border: 1px solid #d2d2d2;
-  background-color: #eeeeee;
-  border-radius: 5px;
+  border-top: 1px solid #e6ecf0;
+  border-bottom: 1px solid #e6ecf0;
   padding: 10px;
   margin-bottom: 150px;
 }
 h2{
-  border-bottom: 1px solid #000;
   margin: 0;
 }
 form{
@@ -48,20 +46,34 @@ form{
 textarea{
   width: 100%;
   padding: 5px;
+  border: 1px solid #e6ecf0;
+  border-radius: 5px;
+
+}
+#click{
+  border: none;
+  background-color: #446CB3;
+  color: #fff;
+  border-radius: 5px;
+  margin-top: 7px;
+  padding: 5px;
 }
 .counter{
   float: right;
   font-style: italic;
+  margin-top: 12px;
 }
 
 /*old tweet*/
 .tweet{
-  border: 1px solid #d2d2d2;
-  border-radius: 5px;
+  border-top: 1px solid #e6ecf0;
+  border-bottom: 1px solid #e6ecf0;
   margin-bottom: 50px;
 }
+.tweet:hover .icons{
+  display: block;
+}
 .tweet header {
-  background-color: #f3f3f3;
   padding: 10px;
   height: 80px;
 }
@@ -78,18 +90,21 @@ textarea{
 }
 .tweet header p.name{
   float: left;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
 }
 .tweet header p.handle{
   float: right;
-  font-style: italic;
-  color: #a6a6a6;
+  color: #657786;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 .tweet .content{
-  height: 80px;
-  margin: 0;
+  border: 1px solid #e6ecf0;
+  border-radius: 5px;
+  min-height: 50px;
+  margin: 0 10px 0 80px;
   padding: 0 10px;
   position: relative;
 } 
@@ -101,22 +116,24 @@ textarea{
 }
 
 .tweet footer{
-  border-top: 1px solid #e6e6e6;
   height: 50px;
   padding: 0 10px;
 }
 .tweet footer .time{
   line-height: 50px;
-  margin: 0;
+  margin: 0 0 0 70px;
   float: left;
+  color: #657786;
+  font-size: 14px;
+  font-weight: normal;
 }
 .tweet footer .icons{
-  display: block;
   float: right;
   height: 100%;
+  display: none;
 }
 .tweet footer .icon{
   line-height: 50px;
-  margin: 0 3px;
+  margin: 0 20px;
 }
 

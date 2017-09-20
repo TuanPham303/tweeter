@@ -5,7 +5,7 @@
  */
  // jshint esversion: 6
 $(() => {
-  var data = [
+  /*var data = [
     {
       "user": {
         "name": "Newton",
@@ -50,7 +50,7 @@ $(() => {
       },
       "created_at": 1461113796368
     }
-  ];
+  ];*/
 
   function createTweetHeader(user) {
     var $header = $("<header>");
@@ -65,7 +65,8 @@ $(() => {
   }
   function createTweetFooter(tweet){
     var $footer = $("<footer>");
-    var $time = $("<p>").addClass("time").text(tweet.created_at);
+    var time = new Date(tweet.created_at);
+    var $time = $("<p>").addClass("time").text(time.toLocaleString());
     var $icons = $("<div>", {"class": "icons"});
     $footer.append($time, $icons);
     $icons.append('<i class="icon fa fa-flag" aria-hidden="true"></i>',
@@ -86,12 +87,33 @@ $(() => {
   }
 
   function renderTweet(tweetsData){
-    $("#old-tweets").append(tweetsData.map(createTweetElement));
+    $("#old-tweets").append($.map(tweetsData, createTweetElement));
   }
   
-  renderTweet(data);
+ /* renderTweet(data);*/
 
+//fetching tweets with AJAX
+  $.ajax({
+    url: './tweets',
+    method: 'GET',
+    success: function(tweetsData){
+      renderTweet(tweetsData);
+    }
+  });
 
+//form validation
+  $("#click").on("click", (event) => {
+    event.preventDefault();
+    $(".error").empty();
+    if($("textarea").val() !== ''){
+      if($("textarea").val().length > 140){
+        $("<p>").text("Your tweet is too long. The limit is 140 characters!").css("color", "red").appendTo($(".error"));
+      }
+    } else {
+      $("<p>").text("Wanna tweet something?").css("color", "red").appendTo($(".error"));
+    }
+
+  });
   
 
 });
