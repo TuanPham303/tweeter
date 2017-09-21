@@ -107,16 +107,14 @@ body {
 .tweet .content{
   border: 1px solid #e6ecf0;
   border-radius: 5px;
-  min-height: 50px;
   margin: 0 10px 0 80px;
-  padding: 0 10px;
+  padding: 10px;
   position: relative;
 } 
-.tweet .content p{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.tweet .content div{
   margin: 0;
+  width: 100%;
+  word-wrap: break-word;
 }
 
 .tweet footer{
