@@ -23,10 +23,14 @@ $(() => {
     var time = new Date(tweet.created_at);
     var $time = $("<p>").addClass("time").text(time.toLocaleString());
     var $icons = $("<div>", {"class": "icons"});
+    
+    var $flagIcon = $('<div>').append('<i class="icon fa fa-flag" aria-hidden="true"></i>');
+    var $retweetIcon = $('<div>').append('<i class="icon fa fa-retweet" aria-hidden="true"></i>');
+    var $heartIcon = $('<div class="like">').append(`<i class="icon fa fa-heart" aria-hidden="true" data-id="${tweet._id}"></i>`);
+    var $countLike = $("<div class='countLike'>").text(tweet.like);
+    $countLike.appendTo($heartIcon);
+    $icons.append($flagIcon, $retweetIcon, $heartIcon);
     $footer.append($time, $icons);
-    $icons.append('<div><i class="icon fa fa-flag" aria-hidden="true"></i></div>',
-                '<div><i class="icon fa fa-retweet" aria-hidden="true"></i></div>',
-                '<div class="like"><i id="like" class="icon fa fa-heart" aria-hidden="true"></i><div class="likeCount"></div></div>');
     return $footer;
   }
 
@@ -91,6 +95,27 @@ $(() => {
     $("textarea").focus();
   });  
   
-
+//COUNT LIKE
+let countLike = 1;
+$("#old-tweets").on('click', ".fa-heart", function(event){
+  let id = this.dataset.id;
+  $.ajax({
+    url: '/tweets/like',
+    method: 'PUT',
+    data: {id: id},
+    success: function(data){
+      $("#old-tweets").empty();
+      $.ajax({
+        url: '/tweets',
+        method: 'GET',
+        success: function(data){
+          renderTweet(data);
+          $("textarea").val('');
+          $(".counter").text(140);
+        }
+      });
+    }
+  });
+});
 
 });

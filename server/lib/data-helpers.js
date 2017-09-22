@@ -13,6 +13,16 @@ module.exports = function makeDataHelpers(db) {
       callback(null, true);
     },
 
+    //save like
+    saveLike: function(id, callback) {
+      let mongoId = require("mongodb").ObjectID;
+      db.collection("tweets").findOneAndUpdate(
+        {"_id": mongoId(id)},
+        {$inc:{"like": 1}}    
+      );
+      callback(null, true);
+    },
+
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {       
       let promise = db.collection("tweets").find().sort({"created_at": -1}).toArray();
