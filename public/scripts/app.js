@@ -90,7 +90,7 @@ $(() => {
   });
 
 //TOGGLE COMPOSE 
-  $("#compose").click((event) => {
+  $("#compose").click(() => {
     $(".new-tweet").toggle();
     $("textarea").focus();
   });  

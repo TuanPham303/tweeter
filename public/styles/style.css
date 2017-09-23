@@ -17,8 +17,7 @@ html {
         border-bottom: 1px solid #e6ecf0;
         padding: 10px;
         margin-bottom: 150px;
-        background-color: #e8f5fe;
-        display: none; }
+        background-color: #e8f5fe; }
         html body .container .new-tweet h2 {
           margin: 0; }
         html body .container .new-tweet form {
@@ -90,7 +89,7 @@ html {
             font-size: 14px;
             font-weight: normal; }
           html body .container .tweet footer .icons {
-            display: block;
+            display: none;
             position: absolute;
             top: 50%;
             right: 0px;
