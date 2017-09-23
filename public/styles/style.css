@@ -17,7 +17,8 @@ html {
         border-bottom: 1px solid #e6ecf0;
         padding: 10px;
         margin-bottom: 150px;
-        background-color: #e8f5fe; }
+        background-color: #e8f5fe;
+        display: none; }
         html body .container .new-tweet h2 {
           margin: 0; }
         html body .container .new-tweet form {
@@ -96,7 +97,7 @@ html {
             html body .container .tweet footer .icons div {
               display: inline-block;
               margin: 0 15px; }
-              html body .container .tweet footer .icons div .likeCount {
-                margin: 0; }
+            html body .container .tweet footer .icons .countLike {
+              margin: 2px; }
 
 /*# sourceMappingURL=style.css.map */
