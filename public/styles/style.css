@@ -89,7 +89,6 @@ html {
             font-size: 14px;
             font-weight: normal; }
           html body .container .tweet footer .icons {
-            display: none;
             position: absolute;
             top: 50%;
             right: 0px;
